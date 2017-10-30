@@ -1,8 +1,14 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+const { isProduction } = require("../constants");
 module.exports = {
     test: /\.css$/,
     use: ExtractTextPlugin.extract({
-        use: "css-loader",
+        use: {
+            loader: "css-loader",
+            options: {
+                minimize: isProduction,
+                sourceMap: isProduction
+            }
+        }
     })
 };
