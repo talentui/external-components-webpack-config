@@ -9,7 +9,7 @@ module.exports = function({ dllList, root }) {
     const dllReferencePlugins = new DllParser(dllList, isProduction) //返回值是数组
         .getRefPlugin(root);
     const extractTextPlugin = new ExtractTextPlugin({
-        filename: "style.css"
+        filename: "css/style.css"
     });
     const uglifyJsPlugin = new (require("webpack")).optimize.UglifyJsPlugin({
         compress: {
@@ -23,6 +23,6 @@ module.exports = function({ dllList, root }) {
     });
     plugins.push(...dllReferencePlugins, extractTextPlugin);
     if(isProduction) plugins.push(uglifyJsPlugin)
-    
+
     return plugins;
 };
