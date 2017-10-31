@@ -13,6 +13,7 @@ module.exports = {
                 }
             },
             "sass-loader"
-        ]
-    })
+        ],
+        publicPath:'../'    
+    }),
 };
