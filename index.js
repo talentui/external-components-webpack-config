@@ -16,7 +16,7 @@ module.exports = function(options) {
             filename: isProduction ? "[name]-[chunkhash].min.js" : "[name].js",
             library: library,
             libraryTarget: "umd",
-            publicPath: asset_path || ""
+            publicPath: asset_path || "/"
         },
         module: {
             rules: require("./rules/index.js")
