@@ -2,6 +2,7 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const DllParser = require("@talentui/dll-parser");
 const { isProduction } = require("../constants");
+const { npm_package_version } = process.env;
 
 module.exports = function({ dllList, root }) {
     const plugins = [];
@@ -9,7 +10,7 @@ module.exports = function({ dllList, root }) {
     const dllReferencePlugins = new DllParser(dllList, isProduction) //返回值是数组
         .getRefPlugin(root);
     const extractTextPlugin = new ExtractTextPlugin({
-        filename: "css/style.css"
+        filename: `css/style-${npm_package_version}.css`
     });
     const uglifyJsPlugin = new (require("webpack")).optimize.UglifyJsPlugin({
         compress: {
