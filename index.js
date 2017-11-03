@@ -1,19 +1,17 @@
 const path = require("path");
 const { isProduction } = require("./constants");
-const { asset_path } = process.env;
-
+const { asset_path, npm_package_version } = process.env;
 module.exports = function(options) {
     const { entry, root, library, dllList } = options;
     const plugins = require("./plugins")(options);
-
     return {
         entry: entry,
         output: {
             path: path.resolve(root, "dist"),
             chunkFilename: isProduction
-                ? "[name]-[chunkhash].chunk.min.js"
+                ? `[name]-${npm_package_version}.chunk.min.js`
                 : "[name].chunk.js",
-            filename: isProduction ? "[name]-[chunkhash].min.js" : "[name].js",
+            filename: isProduction ? `main-${npm_package_version}.min.js` : "main.js",
             library: library,
             libraryTarget: "umd",
             publicPath: asset_path || "/"
