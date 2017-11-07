@@ -27,7 +27,7 @@ module.exports = function({ dllList, root }) {
     });
     const definePlugin = new webpack.DefinePlugin({
         "process.env": {
-            library: library
+            library: JSON.stringify(library)
         }
     });
 
