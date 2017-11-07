@@ -1,8 +1,8 @@
 //plugins
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const DllParser = require("@talentui/dll-parser");
-const { isProduction , library} = require("../constants");
-const webpack = require('webpack');
+const { isProduction, library } = require("../constants");
+const webpack = require("webpack");
 const { npm_package_version } = process.env;
 
 module.exports = function({ dllList, root }) {
@@ -11,7 +11,9 @@ module.exports = function({ dllList, root }) {
     const dllReferencePlugins = new DllParser(dllList, isProduction) //返回值是数组
         .getRefPlugin(root);
     const extractTextPlugin = new ExtractTextPlugin({
-        filename: `css/style-${npm_package_version}.css`
+        filename: isProduction
+            ? `css/style-${npm_package_version}.css`
+            : "css/style.css"
     });
     const uglifyJsPlugin = new (require("webpack")).optimize.UglifyJsPlugin({
         compress: {
@@ -25,11 +27,11 @@ module.exports = function({ dllList, root }) {
     });
     const definePlugin = new webpack.DefinePlugin({
         "process.env": {
-            "library": library
+            library: library
         }
-    })
+    });
 
-    plugins.push(...dllReferencePlugins, extractTextPlugin,definePlugin);
-    if(isProduction) plugins.push(uglifyJsPlugin)
+    plugins.push(...dllReferencePlugins, extractTextPlugin, definePlugin);
+    if (isProduction) plugins.push(uglifyJsPlugin);
     return plugins;
 };
