@@ -1,8 +1,8 @@
 const path = require("path");
-const { isProduction } = require("./constants");
+const { isProduction,library } = require("./constants");
 const { asset_path, npm_package_version } = process.env;
 module.exports = function(options) {
-    const { entry, root, library, dllList } = options;
+    const { entry, root, dllList } = options;
     const plugins = require("./plugins")(options);
     return {
         entry: entry,

@@ -1,7 +1,8 @@
 //plugins
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const DllParser = require("@talentui/dll-parser");
-const { isProduction } = require("../constants");
+const { isProduction , library} = require("../constants");
+const webpack = require('webpack');
 const { npm_package_version } = process.env;
 
 module.exports = function({ dllList, root }) {
@@ -22,8 +23,13 @@ module.exports = function({ dllList, root }) {
         output: { screw_ie8: false },
         sourceMap: true
     });
-    plugins.push(...dllReferencePlugins, extractTextPlugin);
-    if(isProduction) plugins.push(uglifyJsPlugin)
+    const definePlugin = webpack.DefinePlugin({
+        "process.env": {
+            "library": library
+        }
+    })
 
+    plugins.push(...dllReferencePlugins, extractTextPlugin,definePlugin);
+    if(isProduction) plugins.push(uglifyJsPlugin)
     return plugins;
 };
