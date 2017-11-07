@@ -23,7 +23,7 @@ module.exports = function({ dllList, root }) {
         output: { screw_ie8: false },
         sourceMap: true
     });
-    const definePlugin = webpack.DefinePlugin({
+    const definePlugin = new webpack.DefinePlugin({
         "process.env": {
             "library": library
         }
