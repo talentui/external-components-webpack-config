@@ -12,8 +12,8 @@ module.exports = function({ dllList, root }) {
         .getRefPlugin(root);
     const extractTextPlugin = new ExtractTextPlugin({
         filename: isProduction
-            ? `css/style-${npm_package_version}.css`
-            : "css/style.css"
+            ? `css/main-${npm_package_version}.css`
+            : "css/main.css"
     });
     const uglifyJsPlugin = new (require("webpack")).optimize.UglifyJsPlugin({
         compress: {
