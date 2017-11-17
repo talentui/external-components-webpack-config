@@ -14,6 +14,6 @@ module.exports = {
             },
             "sass-loader"
         ],
-        publicPath:'../'    
+        publicPath:'./'    
     }),
 };
