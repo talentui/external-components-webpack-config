@@ -12,7 +12,7 @@ module.exports = function({ dllList, root }) {
         .getRefPlugin(root);
     const extractTextPlugin = new ExtractTextPlugin({
         filename: isProduction
-            ? `main-${npm_package_version}.css`
+            ? `main-${npm_package_version}.min.css`
             : "main.css"
     });
     const uglifyJsPlugin = new (require("webpack")).optimize.UglifyJsPlugin({
