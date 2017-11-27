@@ -10,6 +10,6 @@ module.exports = {
                 sourceMap: isProduction
             }
         },
-        publicPath:'../'//和所定义的打包出的dist文件结构有关  css文件放在css文件下    
+        publicPath:'./'//和所定义的打包出的dist文件结构有关  css文件放在css文件下    
     })
 };

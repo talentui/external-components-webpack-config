@@ -1,7 +1,7 @@
 //plugins
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const DllParser = require("@talentui/dll-parser");
-const { isProduction, library } = require("../constants");
+const { isProduction, library, rawName } = require("../constants");
 const webpack = require("webpack");
 const { npm_package_version } = process.env;
 
@@ -12,8 +12,8 @@ module.exports = function({ dllList, root }) {
         .getRefPlugin(root);
     const extractTextPlugin = new ExtractTextPlugin({
         filename: isProduction
-            ? `css/style-${npm_package_version}.css`
-            : "css/style.css"
+            ? `main-${npm_package_version}.css`
+            : "main.css"
     });
     const uglifyJsPlugin = new (require("webpack")).optimize.UglifyJsPlugin({
         compress: {
@@ -27,7 +27,8 @@ module.exports = function({ dllList, root }) {
     });
     const definePlugin = new webpack.DefinePlugin({
         "process.env": {
-            library: JSON.stringify(library)
+            library: JSON.stringify(library),
+            rawName:JSON.stringify(rawName)
         }
     });
 

@@ -1,6 +1,6 @@
 {
   "name": "@talentui/webpack-library-config",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "UMD方式打包pageBuilder组件的webpack配置",
   "main": "index.js",
   "scripts": {
