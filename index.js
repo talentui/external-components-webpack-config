@@ -23,7 +23,10 @@ module.exports = function(options) {
         },
         plugins: plugins,
         resolve: {
-            extensions: [".tsx", ".ts", ".js"]
+            extensions: [".tsx", ".ts", ".js"],
+            alias: {
+                "&": options.moduleScope
+            }
         }
     };
 };
