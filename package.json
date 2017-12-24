@@ -1,50 +1,17 @@
 {
-  "_from": "@talentui/webpack-library-config@1.0.10",
-  "_id": "@talentui/webpack-library-config@1.0.10",
-  "_inBundle": false,
-  "_integrity": "sha512-tqd46G2Pcx569HiUlQ8KCL/0ku3MQZSPLfoMoB5UHyKOZuZ76ViTUqH1AZqE2W300uGk5rCSZ18PsNJrbzrVew==",
-  "_location": "/@talentui/webpack-library-config",
-  "_phantomChildren": {
-    "async": "2.6.0",
-    "co": "4.6.0",
-    "json-stable-stringify": "1.0.1",
-    "loader-utils": "1.1.0"
-  },
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "@talentui/webpack-library-config@1.0.10",
-    "name": "@talentui/webpack-library-config",
-    "escapedName": "@talentui%2fwebpack-library-config",
-    "scope": "@talentui",
-    "rawSpec": "1.0.10",
-    "saveSpec": null,
-    "fetchSpec": "1.0.10"
-  },
-  "_requiredBy": [
-    "#DEV:/",
-    "#USER"
-  ],
-  "_resolved": "https://registry.npmjs.org/@talentui/webpack-library-config/-/webpack-library-config-1.0.10.tgz",
-  "_shasum": "131bae8f1f44168744b0f3d99addb01f9eaeb9a2",
-  "_spec": "@talentui/webpack-library-config@1.0.10",
-  "_where": "/Users/beisen/Documents/project/pb-compoents/ux-upaas-component",
-  "author": {
-    "name": "lihe3@beisen.com"
-  },
-  "bundleDependencies": false,
-  "dependencies": {
-    "@talentui/dll-parser": "^1.0.1",
-    "extract-text-webpack-plugin": "2.1.0",
-    "webpack": "^3.8.1"
-  },
-  "deprecated": false,
-  "description": "UMD方式打包pageBuilder组件的webpack配置",
-  "license": "ISC",
-  "main": "index.js",
   "name": "@talentui/webpack-library-config",
+  "version": "1.0.9",
+  "description": "UMD方式打包pageBuilder组件的webpack配置",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.0.10"
+  "author": "lihe3@beisen.com",
+  "license": "ISC",
+  "dependencies": {
+    "@talentui/dll-parser": "^1.0.1",
+    "extract-text-webpack-plugin": "2.1.0",
+    "ts-loader": "^3.2.0",
+    "webpack": "^3.8.1"
+  }
 }
