@@ -1,7 +1,7 @@
 //plugins
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const DllParser = require("@talentui/dll-parser");
-const { isProduction, library, rawName } = require("../constants");
+const { isProduction, library, rawName, appId } = require("../constants");
 const webpack = require("webpack");
 const { npm_package_version } = process.env;
 
@@ -28,7 +28,8 @@ module.exports = function({ dllList, root }) {
     const definePlugin = new webpack.DefinePlugin({
         "process.env": {
             library: JSON.stringify(library),
-            rawName:JSON.stringify(rawName)
+            rawName:JSON.stringify(rawName),
+            appId: JSON.stringify(appId)
         }
     });
 
