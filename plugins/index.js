@@ -15,15 +15,16 @@ module.exports = function({ dllList, root }) {
             ? `main-${npm_package_version}.min.css`
             : "main.css"
     });
-    const uglifyJsPlugin = new (require("webpack")).optimize.UglifyJsPlugin({
-        compress: {
-            warnings: false,
-            screw_ie8: false,
-            drop_console: true
+    const uglifyJsPlugin = new (require('uglifyjs-webpack-plugin'))({
+        uglifyOptions: {
+            ie8: true,
+            ecma: 6,
+            compress: {
+                drop_console: true
+            }
         },
-        mangle: { screw_ie8: false },
-        output: { screw_ie8: false },
-        sourceMap: true
+        sourceMap: true,
+        parallel: true
     });
     const definePlugin = new webpack.DefinePlugin({
         "process.env": {

@@ -2,7 +2,7 @@ const path = require("path");
 const { isProduction, library } = require("./constants");
 const { asset_path, npm_package_version } = process.env;
 module.exports = function(options) {
-    const { entry, root, dllList } = options;
+    const { entry, root, dllList, alias } = options;
     const plugins = require("./plugins")(options);
     return {
         entry: entry,
@@ -23,10 +23,10 @@ module.exports = function(options) {
         },
         plugins: plugins,
         resolve: {
-            extensions: [".tsx", ".ts", ".js"],
-            alias: {
+            extensions: [".tsx", ".ts", ".js", ".jsx", ".vue"],
+            alias: Object.assign({}, alias, {
                 "&": options.moduleScope
-            }
+            })
         }
     };
 };
