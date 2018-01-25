@@ -24,9 +24,12 @@ module.exports = function(options) {
         plugins: plugins,
         resolve: {
             extensions: [".tsx", ".ts", ".js", ".jsx", ".vue"],
-            alias: Object.assign({}, alias, {
-                "&": options.moduleScope
-            })
+            alias: Object.assign(
+                {
+                    "&": options.moduleScope
+                },
+                alias
+            )
         }
     };
 };
