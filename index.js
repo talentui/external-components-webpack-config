@@ -14,8 +14,6 @@ module.exports = function(options) {
             filename: isProduction
                 ? `main-${npm_package_version}.min.js`
                 : "main.js",
-            library: library,
-            libraryTarget: "umd",
             publicPath: asset_path || "/"
         },
         module: {
