@@ -4,9 +4,11 @@ const library = npm_package_name.replace(/@|\-|\//g,'_');//以package name作为
 const packageName = npm_package_name;//项目名称
 const appId = npm_package_appId;
 const isProduction = NODE_ENV === production;
+const root = process.cwd()
 module.exports = {
     isProduction,
     library,
     packageName,
-    appId
+    appId,
+    root
 };
