@@ -1,13 +1,11 @@
 {
   "name": "@talentui/external-components-webpack-config",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "打包外部组件的webpack配置",
   "main": "index.js",
   "bin": {
-    "builderjs":"./bin/build.sh"
-  },
-  "scripts": {
-    "neo":"webpack"
+    "build-componets":"./bin/build.sh",
+    "build-components-prod":"./bin/build-prod.js"
   },
   "author": "lihe3@beisen.com",
   "license": "ISC",
