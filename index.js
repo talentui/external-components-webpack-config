@@ -4,8 +4,8 @@
 require("babel-core/register");
 require("babel-polyfill");
 
-import eLementCollections from "&/index.js";
-import componentRegistry from "@talentui/external-component-registry";
+import components from "&/index.js";// 外部组件
+import componentRegistry from "@talentui/external-component-registry";//组件注册工具，已注入到dll-react
 /**
  * webpack 按需加载，设置public path
 */
@@ -13,4 +13,4 @@ __webpack_public_path__ = "//stnew03.beisen.com/ux/upaas/" + process.env.package
 /**
  * 组件注册
 */
-componentRegistry.set(process.env.appId, eLementCollections);
+componentRegistry.set(process.env.appId, components);
