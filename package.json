@@ -1,10 +1,11 @@
 {
   "name": "@talentui/external-components-webpack-config",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "打包外部组件的webpack配置",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bin": {
+    "builderjs":"./bin/build.sh",
+    "build":"webpack"
   },
   "author": "lihe3@beisen.com",
   "license": "ISC",
