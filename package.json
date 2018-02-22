@@ -3,10 +3,6 @@
   "version": "1.1.0",
   "description": "打包外部组件的webpack配置",
   "main": "index.js",
-  "bin": {
-    "build-components":"./bin/build.sh",
-    "build-components-prod":"./bin/build-prod.sh"
-  },
   "author": "lihe3@beisen.com",
   "license": "ISC",
   "dependencies": {
