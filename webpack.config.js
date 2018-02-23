@@ -3,7 +3,7 @@ const { isProduction, library, root } = require("./constants");
 const { asset_path, npm_package_version } = process.env;
 const plugins = require('./plugins/index')
 module.exports = {
-        entry: ["@talentui/external-components-webpack-config"],
+        entry: "@talentui/external-components-webpack-config",
         output: {
             path: path.resolve(root, "dist"),
             chunkFilename: isProduction
