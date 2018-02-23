@@ -18,7 +18,8 @@ const plugins = [];
 const dllReferencePlugins = new DllParser(dllList, isProduction) //返回值是数组
     .getRefPlugin(root);
 const extractTextPlugin = new ExtractTextPlugin({
-    filename: isProduction ? `main-${npm_package_version}.min.css` : "main.css"
+    filename: isProduction ? `main-${npm_package_version}.min.css` : "main.css",
+    allChunks: true
 });
 const uglifyJsPlugin = new (require("uglifyjs-webpack-plugin"))({
     uglifyOptions: {
