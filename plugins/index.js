@@ -21,7 +21,7 @@ const extractTextPlugin = new ExtractTextPlugin({
     filename: isProduction ? `main-${npm_package_version}.min.css` : "main.css",
     allChunks: true
 });
-const uglifyJsPlugin = new (require("uglifyjs-webpack-plugin"))({
+const uglifyJsPlugin = new (require("uglify-js-plugin"))({
     uglifyOptions: {
         ie8: true,
         ecma: 6,
