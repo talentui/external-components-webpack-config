@@ -40,6 +40,6 @@ const definePlugin = new webpack.DefinePlugin({
     }
 });
 
-plugins.push(...dllReferencePlugins, extractTextPlugin, definePlugin);
+plugins.push(...dllReferencePlugins, definePlugin);
 if (isProduction) plugins.push(uglifyJsPlugin);
 module.exports = plugins;
