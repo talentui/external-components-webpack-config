@@ -7,4 +7,4 @@ __webpack_public_path__ = "//stnew03.beisen.com/ux/upaas/" + process.env.package
 /**
  * 组件注册
 */
-componentRegistry.set(process.env.appId, components);
+componentRegistry.set(process.env.packageName, components);
