@@ -50,6 +50,6 @@ const analyzer = new BundleAnalyzerPlugin({
     statsFilename: `stats-${npm_package_version}.json`
 })
 
-plugins.push(...dllReferencePlugins, definePlugin);
+plugins.push(...dllReferencePlugins, definePlugin, analyzer);
 if (isProduction) plugins.push(uglifyJsPlugin);
 module.exports = plugins;
