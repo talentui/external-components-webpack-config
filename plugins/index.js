@@ -1,6 +1,8 @@
 //plugins
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const DllParser = require("@talentui/dll-parser");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 const {
     isProduction,
     library,
@@ -39,6 +41,14 @@ const definePlugin = new webpack.DefinePlugin({
         appId: JSON.stringify(appId)
     }
 });
+
+//打包后的内容分析工具，协助完成构建结果分析
+const analyzer = new BundleAnalyzerPlugin({
+    analyzerMode: 'static',
+    generateStatsFile: true,
+    reportFilename: `report-${npm_package_version}.html`,
+    statsFilename: `stats-${npm_package_version}.json`
+})
 
 plugins.push(...dllReferencePlugins, definePlugin);
 if (isProduction) plugins.push(uglifyJsPlugin);
