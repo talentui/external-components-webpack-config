@@ -13,7 +13,7 @@ module.exports = {
                 ? `main-${npm_package_version}.min.js`
                 : "main.js",
             publicPath: asset_path || "/",
-            library: library
+            jsonpFunction: library
         },
         module: {
             rules: require("./rules/index.js")
