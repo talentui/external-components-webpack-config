@@ -37,7 +37,7 @@ const definePlugin = new webpack.DefinePlugin({
         library: JSON.stringify(library),
         packageName: JSON.stringify(packageName),
         appId: JSON.stringify(appId),
-        'NODE_ENV': JSON.stringify('production')
+        'NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development')
     }
 });
 
