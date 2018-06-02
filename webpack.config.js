@@ -12,7 +12,8 @@ module.exports = {
             filename: isProduction
                 ? `main-${npm_package_version}.min.js`
                 : "main.js",
-            publicPath: asset_path || "/"
+            publicPath: asset_path || "/",
+            jsonpFunction: library
         },
         module: {
             rules: require("./rules/index.js")
