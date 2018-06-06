@@ -8,7 +8,8 @@ const {
     library,
     packageName,
     appId,
-    root
+    root,
+    componentCode
 } = require("../constants");
 const webpack = require("webpack");
 const path = require("path");
@@ -39,6 +40,7 @@ const definePlugin = new webpack.DefinePlugin({
         library: JSON.stringify(library),
         packageName: JSON.stringify(packageName),
         appId: JSON.stringify(appId),
+        componentCode:JSON.stringify(componentCode),
         'NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development')
     }
 });

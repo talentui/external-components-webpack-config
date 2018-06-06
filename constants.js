@@ -3,6 +3,7 @@ const production = "production"
 const library = npm_package_name.replace(/@|\-|\//g,'_');//以package name作为umd全局的变量名
 const packageName = npm_package_name;//项目名称
 const appId = npm_package_appId;
+const componentCode = npm_package_componentCode;//组件编码
 const isProduction = NODE_ENV === production;
 const root = process.cwd()
 module.exports = {
@@ -10,5 +11,6 @@ module.exports = {
     library,
     packageName,
     appId,
-    root
+    root,
+    componentCode
 };
