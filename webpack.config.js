@@ -1,6 +1,6 @@
 const path = require("path");
 const { isProduction, library, root } = require("./constants");
-const { asset_path, npm_package_version } = process.env;
+const { npm_package_version, npm_package_name } = process.env;
 const plugins = require('./plugins/index')
 module.exports = {
         entry: "@talentui/external-components-webpack-config",
@@ -12,7 +12,7 @@ module.exports = {
             filename: isProduction
                 ? `main-${npm_package_version}.min.js`
                 : "main.js",
-            publicPath: asset_path || "/",
+            publicPath: `//stnew03.beisen.com/ux/upaas/${npm_package_name}/release/dist/`,
             jsonpFunction: library
         },
         module: {
