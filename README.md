@@ -1,6 +1,9 @@
 
 # 外部组件打包配置
 
+# 1.1.0-beta
+从package.json中读取dllList参数，不从dll-config中读了
+
 # 1.0.5-beta
 修改output的library为 jsonpFunction
 
