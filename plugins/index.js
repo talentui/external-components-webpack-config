@@ -9,12 +9,13 @@ const {
     packageName,
     appId,
     root,
-    componentCode
+    componentCode,
+    dllList
 } = require("../constants");
 const webpack = require("webpack");
 const path = require("path");
 const { npm_package_version } = process.env;
-const { dllList } = require(path.resolve(root, "./src/dll-config.js"));
+// const { dllList } = require(path.resolve(root, "./src/dll-config.js"));
 
 const plugins = [];
 
