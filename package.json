@@ -12,6 +12,6 @@
     "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.8.1",
     "webpack-bundle-analyzer": "^2.11.1",
-    "@talentui/external-component-registry": "1.0.2"
+    "@talentui/external-component-registry": "1.0.5"
   }
 }
