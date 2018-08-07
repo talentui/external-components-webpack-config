@@ -11,18 +11,19 @@ import componentRegistry from "@talentui/external-component-registry"; //组件�
 /**
  * 组件注册
  */
+const componentCode = process.env.componentCode;
+const appId = process.env.appId;
 window._talentui_registry.update("_externalComp", function(externalComp) {
     if (externalComp === undefined) {
-        return {
-            [process.env.appId]: {
-                [process.env.componentCode]: component
-            }
-        };
+        const newValue = {};
+        newValue[appId] = {};
+        newValue[appId][componentCode] = component;
+        return newValue;
     } else {
-        const curList = externalComp[process.env.appId] || {};
-        externalComp[process.env.appId] = Object.assign({}, curList, {
-            [process.env.componentCode]: component
-        });
+        const curValue = externalComp[process.env.appId] || {};
+        const newObj = {};
+        newObj[componentCode] = component;
+        externalComp[process.env.appId] = Object.assign({}, curValue, newObj);
         return externalComp;
     }
 });
