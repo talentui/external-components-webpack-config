@@ -5,5 +5,5 @@ module.exports = [
     require("./sass-rule"),
     require("./ts-rule"),
     require('./vue-rule'),
-    require('./extract-less-rule')
+    require('./less-rule')
 ]
