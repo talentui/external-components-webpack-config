@@ -1,6 +1,9 @@
 
 # 外部组件打包配置
 
+# 1.3.0-beta
+添加编译路径的支持,通过环境变量entry指定组件的入口
+
 # 1.1.0-beta
 从package.json中读取dllList参数，不从dll-config中读了
 
