@@ -2,7 +2,8 @@ const {
     NODE_ENV,
     npm_package_name,
     npm_package_appId,
-    npm_package_componentCode
+    npm_package_componentCode,
+    entry
 } = process.env;
 const path = require('path');
 const production = "production";
@@ -13,6 +14,7 @@ const componentCode = npm_package_componentCode; //组件编码
 const isProduction = NODE_ENV === production;
 const root = process.cwd();
 const dllList = require(path.resolve(root,'package.json')).dllList;
+const componentEntry = entry ? path.resolve(root, entry) : '&/index.js'
 module.exports = {
     isProduction,
     library,
@@ -20,5 +22,6 @@ module.exports = {
     appId,
     root,
     componentCode,
-    dllList
+    dllList,
+    componentEntry
 };

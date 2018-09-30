@@ -5,8 +5,7 @@ __webpack_public_path__ =
     "//stnew03.beisen.com/ux/upaas/" +
     process.env.packageName +
     "/release/dist/";
-
-import component from "&/index.js"; // 外部组件
+const component = require(process.env.componentEntry).default;//ES6 module 路径不支持这种格式
 import componentRegistry from "@talentui/external-component-registry"; //组件注册工具，已注入到dll-react
 /**
  * 组件注册

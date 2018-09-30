@@ -10,7 +10,8 @@ const {
     appId,
     root,
     componentCode,
-    dllList
+    dllList,
+    componentEntry
 } = require("../constants");
 const webpack = require("webpack");
 const path = require("path");
@@ -42,7 +43,8 @@ const definePlugin = new webpack.DefinePlugin({
         packageName: JSON.stringify(packageName),
         appId: JSON.stringify(appId),
         componentCode:JSON.stringify(componentCode),
-        'NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development')
+        'NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development'),
+        componentEntry: JSON.stringify(componentEntry)
     }
 });
 
