@@ -9,7 +9,7 @@ const {
     dllList,
     componentEntry,
     npm_package_version
-} = require("./constants");
+} = require("../constants");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require("webpack");
 
