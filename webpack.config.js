@@ -5,7 +5,7 @@ const plugins = require('./plugins/index')
 module.exports = {
         entry: "@talentui/external-components-webpack-config",
         output: {
-            path: path.resolve(root, "dist"),
+            path: path.resolve(root, "talentui-static",npm_package_name),
             chunkFilename: isProduction
                 ? `[name]-${npm_package_version}.chunk.min.js`
                 : "[name].chunk.js",
