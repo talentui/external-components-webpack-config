@@ -1,6 +1,9 @@
 
 # 外部组件打包配置
 
+# 4.0.1-beta
+打包工具和`@talentui/webpack-config`整合，内部绝大部分的配置都是从`@talentui/webpack-config`引入的。
+
 # 1.3.0-beta
 添加编译路径的支持,通过环境变量entry指定组件的入口
 
