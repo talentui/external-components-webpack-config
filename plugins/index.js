@@ -1,8 +1,4 @@
 //plugins
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const DllParser = require("@talentui/dll-parser");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
 const {
     isProduction,
     library,
@@ -11,32 +7,16 @@ const {
     root,
     componentCode,
     dllList,
-    componentEntry
-} = require("../constants");
+    componentEntry,
+    npm_package_version
+} = require("./constants");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require("webpack");
-const path = require("path");
-const { npm_package_version } = process.env;
-// const { dllList } = require(path.resolve(root, "./src/dll-config.js"));
 
 const plugins = [];
-
-const dllReferencePlugins = new DllParser(dllList, isProduction) //返回值是数组
-    .getRefPlugin(root);
-const extractTextPlugin = new ExtractTextPlugin({
-    filename: isProduction ? `main-${npm_package_version}.min.css` : "main.css",
-    allChunks: true
-});
-const uglifyJsPlugin = new (require("uglify-js-plugin"))({
-    uglifyOptions: {
-        ie8: true,
-        ecma: 6,
-        compress: {
-            drop_console: true
-        }
-    },
-    sourceMap: true,
-    parallel: true
-});
+const dllReferencePlugins = require('@talentui/webpack-config/src/plugins/dll-reference-plugin')
+const uglifyJsPlugin = require('@talentui/webpack-config/src/plugins/uglify-js-plugin')
+//运行态所依赖的参数
 const definePlugin = new webpack.DefinePlugin({
     "process.env": {
         library: JSON.stringify(library),
@@ -52,8 +32,8 @@ const definePlugin = new webpack.DefinePlugin({
 const analyzer = new BundleAnalyzerPlugin({
     analyzerMode: 'static',
     generateStatsFile: true,
-    reportFilename: `report-${npm_package_version}.html`,
-    statsFilename: `stats-${npm_package_version}.json`
+    reportFilename: isProduction ? `report-${npm_package_version}.html` : `report.html`,
+    statsFilename: isProduction ? `stats-${npm_package_version}.json` : `stats.json`
 })
 
 plugins.push(...dllReferencePlugins, definePlugin, analyzer);

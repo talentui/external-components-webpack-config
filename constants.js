@@ -3,11 +3,12 @@ const {
     npm_package_name,
     npm_package_appId,
     npm_package_componentCode,
-    entry
+    entry,
+    npm_package_version
 } = process.env;
 const path = require('path');
 const production = "production";
-const library = npm_package_name.replace(/@|\-|\//g, "_"); //以package name作为umd全局的变量名
+const library = npm_package_name.replace(/@|\-|\//g, "_"); //以package name作为jsonPFunction
 const packageName = npm_package_name; //项目名称
 const appId = npm_package_appId;
 const componentCode = npm_package_componentCode; //组件编码
@@ -23,5 +24,6 @@ module.exports = {
     root,
     componentCode,
     dllList,
-    componentEntry
+    componentEntry,
+    npm_package_version
 };
