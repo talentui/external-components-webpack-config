@@ -15,7 +15,7 @@ const componentCode = pjson.componentCode;//组件编码
 const production = "production";
 const library = packageName.replace(/@|\-|\//g, "_"); //以package name作为umd全局的变量名
 const isProduction = NODE_ENV === production;
-const dllList = require(path.resolve(root, "package.json")).dllList;
+const dllList = pjson.dllList;
 const componentEntry = entry
     ? path.resolve(root, entry, "src/index.js")
     : "&/index.js";
