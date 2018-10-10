@@ -1,18 +1,17 @@
 const path = require("path");
-const { isProduction, library, root, folderName} = require("./constants");
-const { npm_package_version, npm_package_name } = process.env;
+const { isProduction, library, root, packageName, version} = require("./constants");
 const plugins = require('./plugins/index')
 module.exports = {
         entry: "@talentui/external-components-webpack-config",
         output: {
-            path: path.resolve(root, "talentui-static", folderName),
+            path: path.resolve(root, "talentui-static", packageName,'release/dist'),
             chunkFilename: isProduction
-                ? `[name]-${npm_package_version}.chunk.min.js`
+                ? `[name]-${version}.chunk.min.js`
                 : "[name].chunk.js",
             filename: isProduction
-                ? `main-${npm_package_version}.min.js`
+                ? `main-${version}.min.js`
                 : "main.js",
-            publicPath: `//stnew03.beisen.com/ux/upaas/${npm_package_name}/release/dist/`,
+            publicPath: `//stnew03.beisen.com/ux/upaas/${packageName}/release/dist/`,
             jsonpFunction: library
         },
         module: {

@@ -1,7 +1,8 @@
 //plugins
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const DllParser = require("@talentui/dll-parser");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+    .BundleAnalyzerPlugin;
 
 const {
     isProduction,
@@ -11,11 +12,11 @@ const {
     root,
     componentCode,
     dllList,
-    componentEntry
+    componentEntry,
+    version
 } = require("../constants");
 const webpack = require("webpack");
 const path = require("path");
-const { npm_package_version } = process.env;
 // const { dllList } = require(path.resolve(root, "./src/dll-config.js"));
 
 const plugins = [];
@@ -23,7 +24,7 @@ const plugins = [];
 const dllReferencePlugins = new DllParser(dllList, isProduction) //返回值是数组
     .getRefPlugin(root);
 const extractTextPlugin = new ExtractTextPlugin({
-    filename: isProduction ? `main-${npm_package_version}.min.css` : "main.css",
+    filename: isProduction ? `main-${version}.min.css` : "main.css",
     allChunks: true
 });
 const uglifyJsPlugin = new (require("uglify-js-plugin"))({
@@ -42,19 +43,19 @@ const definePlugin = new webpack.DefinePlugin({
         library: JSON.stringify(library),
         packageName: JSON.stringify(packageName),
         appId: JSON.stringify(appId),
-        componentCode:JSON.stringify(componentCode),
-        'NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development'),
+        componentCode: JSON.stringify(componentCode),
+        NODE_ENV: JSON.stringify(isProduction ? "production" : "development"),
         componentEntry: JSON.stringify(componentEntry)
     }
 });
 
 //打包后的内容分析工具，协助完成构建结果分析
 const analyzer = new BundleAnalyzerPlugin({
-    analyzerMode: 'static',
+    analyzerMode: "static",
     generateStatsFile: true,
-    reportFilename: `report-${npm_package_version}.html`,
-    statsFilename: `stats-${npm_package_version}.json`
-})
+    reportFilename: isProduction ? `report-${version}.html` : `report.html`,
+    statsFilename: isProduction ? `stats-${version}.json` : `stats.json`
+});
 
 plugins.push(...dllReferencePlugins, definePlugin, analyzer);
 if (isProduction) plugins.push(uglifyJsPlugin);
