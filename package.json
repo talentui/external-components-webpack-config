@@ -1,6 +1,6 @@
 {
   "name": "@talentui/external-components-webpack-config",
-  "version": "3.0.3-cmp",
+  "version": "3.0.4-cmp",
   "description": "打包外部组件的webpack配置",
   "main": "index.js",
   "author": "lihe3@beisen.com",
