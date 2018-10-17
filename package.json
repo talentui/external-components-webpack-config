@@ -7,12 +7,13 @@
   "license": "ISC",
   "dependencies": {
     "@talentui/dll-parser": "^1.0.1",
+    "@talentui/external-component-registry": "1.0.5",
+    "@talentui/external-components-entrance": "^1.0.0",
+    "less-loader": "^4.1.0",
     "ts-loader": "^3.2.0",
     "uglify-js-plugin": "0.0.6",
     "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.8.1",
-    "webpack-bundle-analyzer": "^2.11.1",
-    "@talentui/external-component-registry": "1.0.5",
-    "less-loader": "^4.1.0"
+    "webpack-bundle-analyzer": "^2.11.1"
   }
 }

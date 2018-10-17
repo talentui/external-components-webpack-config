@@ -2,7 +2,7 @@ const path = require("path");
 const { isProduction, library, root, packageName, version} = require("./constants");
 const plugins = require('./plugins/index')
 module.exports = {
-        entry: "@talentui/external-components-webpack-config",
+        entry: "@talentui/external-components-entrance/dynamic.js",
         output: {
             path: path.resolve(root, "talentui-static", packageName,'release/dist'),
             chunkFilename: isProduction
