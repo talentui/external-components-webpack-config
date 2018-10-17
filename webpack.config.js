@@ -2,7 +2,7 @@ const { library, root, dllList } = require("./constants");
 const { npm_package_name } = process.env;
 const path = require("path");
 const webpackConfig = require("@talentui/webpack-config")({
-    entry: "@talentui/external-components-webpack-config",
+    entry: "@talentui/external-components-entrance/dynamic.js",
     output:{
         publicPath:`//stnew03.beisen.com/ux/upaas/${npm_package_name}/release/dist/`,
         jsonpFunction: library

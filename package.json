@@ -7,9 +7,10 @@
   "license": "ISC",
   "dependencies": {
     "@talentui/external-component-registry": "1.0.5",
+    "@talentui/external-components-entrance": "^1.0.0",
     "less-loader": "^4.1.0"
   },
   "devDependencies": {
-    "@talentui/webpack-config": "^4.0.2"    
+    "@talentui/webpack-config": "^4.0.2"
   }
 }
