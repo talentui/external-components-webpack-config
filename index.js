@@ -12,7 +12,7 @@ import componentRegistry from "@talentui/external-component-registry"; //组件�
  */
 const componentCode = process.env.componentCode;
 const appId = process.env.appId;
-window._talentui_registry.update("_externalComp", function(externalComp) {
+window._talentui_registry && window._talentui_registry.update("_externalComp", function(externalComp) {
     if (externalComp === undefined) {
         const newValue = {};
         newValue[appId] = {};
