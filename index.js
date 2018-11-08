@@ -3,7 +3,7 @@ const path = require("path");
 const merge = require("webpack-merge");
 const Analyzer = require("webpack-bundle-analyzer");
 const root = fs.realpathSync(process.cwd());
-const { appId, componentCode, name, version } = require(path.resolve(
+const { appId, componentCode, name, version, projectType } = require(path.resolve(
     root,
     "package.json"
 ));
@@ -23,7 +23,8 @@ const webpackConfig = require("@talentui/webpack-config")({
             library: JSON.stringify(library),
             packageName: JSON.stringify(name),
             appId: JSON.stringify(appId),
-            componentCode: JSON.stringify(componentCode)
+            componentCode: JSON.stringify(componentCode),
+            projectType: JSON.stringify(projectType)
         }
     },
     projectType: "module"

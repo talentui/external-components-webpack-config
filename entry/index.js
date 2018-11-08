@@ -13,19 +13,25 @@ const component = propsLoader(rawComponent);
 /**
  * 组件注册
  */
-const componentCode = process.env.componentCode;//组件编码
+const componentCode = process.env.componentCode;//组件 | 布局的编码
 const appId = process.env.appId;//组件的应用ID
-window._talentui_registry.update("_externalComp", function(externalComp) {
-    if (externalComp === undefined) {
-        const newValue = {};
-        newValue[appId] = {};
-        newValue[appId][componentCode] = component;
-        return newValue;
-    } else {
-        const curValue = externalComp[process.env.appId] || {};
-        const newObj = {};
-        newObj[componentCode] = component;
-        externalComp[process.env.appId] = Object.assign({}, curValue, newObj);
-        return externalComp;
-    }
-});
+//如果是组件的话
+if(process.env.projectType === 'component'){
+    window._talentui_registry.update("_externalComp", function(externalComp) {
+        if (externalComp === undefined) {
+            const newValue = {};
+            newValue[appId] = {};
+            newValue[appId][componentCode] = component;
+            return newValue;
+        } else {
+            const curValue = externalComp[process.env.appId] || {};
+            const newObj = {};
+            newObj[componentCode] = component;
+            externalComp[process.env.appId] = Object.assign({}, curValue, newObj);
+            return externalComp;
+        }
+    });
+}else{
+    //如果是布局的话
+    window._talentui_registry.set("_template", component)
+}
