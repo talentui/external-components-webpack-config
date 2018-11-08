@@ -6,14 +6,7 @@
   "author": "lihe3@beisen.com",
   "license": "ISC",
   "dependencies": {
-    "@talentui/dll-parser": "^1.0.1",
-    "@talentui/external-components-entrance": "^1.0.0",
-    "extract-text-webpack-plugin": "2.1.0",
-    "less": "^3.8.1",
-    "less-loader": "^4.1.0",
-    "ts-loader": "^3.2.0",
-    "uglify-js-plugin": "0.0.6",
-    "uglifyjs-webpack-plugin": "^1.1.6",
-    "webpack": "^3.8.1"
+    "@talentui/webpack-config": "^4.0.6",
+    "webpack-merge": "^4.1.4"
   }
 }

@@ -2,19 +2,19 @@
 const path = require("path");
 const merge = require("webpack-merge");
 const Analyzer = require("webpack-bundle-analyzer");
-const { appId, componentCode, name, version } = require("./package.json");
+const { appId, componentCode, name, version } = require("_/package.json");
 const library = name.replace(/@|\-|\//g, "_");
 const buildProd = require("@talentui/webpack-config/src/helpers/parse-mode")() === "production";
 
 const webpackConfig = require("@talentui/webpack-config")({
   entry: {
-    main: "@talentui/thunder-component-bootstrap"
+    main: "./entry/index.js"
   },
   port: 3001,
   extractStyles: false,
-  alias: {
-    "&": path.resolve(__dirname, "src")
-  },
+//   alias: {
+//     "&": path.resolve(__dirname, "src")
+//   },
   define: {
     "process.env": {
       library: JSON.stringify(library),

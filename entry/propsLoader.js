@@ -2,7 +2,7 @@
 export default Target => {
     Target.getEditProps = function(){
         return new Promise(resolve =>{
-            import('&/props/index.js').then(props =>{
+            import('_/src/props/index.js').then(props =>{
                 resolve(props.default);
             })
         })
