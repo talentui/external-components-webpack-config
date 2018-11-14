@@ -17,6 +17,7 @@ const webpackConfig = require("@talentui/webpack-config")({
         main: path.resolve(__dirname,"entry/index.js")
     },
     port: 3001,
+    language:"mixed",
     extractStyles: false,
     define: {
         "process.env": {
