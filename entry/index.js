@@ -33,5 +33,5 @@ if(process.env.projectType === 'component'){
     });
 }else{
     //如果是布局的话
-    window._talentui_registry.set("_template", component)
+    window._talentui_registry.set("_layout", component)
 }
