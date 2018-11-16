@@ -5,8 +5,17 @@
   "main": "index.js",
   "author": "lihe3@beisen.com",
   "license": "ISC",
+  "scripts": {
+    "prepublish": "rm -rf ./lib && babel ./entry  --out-dir lib"
+  },
   "dependencies": {
     "@talentui/webpack-config": "^4.0.6",
+    "core-js": "^2.5.7",
     "webpack-merge": "^4.1.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@talentui/get-babel-config": "^4.0.1"
   }
 }

@@ -14,7 +14,7 @@ const buildProd =
 
 const webpackConfig = require("@talentui/webpack-config")({
     entry: {
-        main: path.resolve(__dirname,"entry/index.js")
+        main: path.resolve(__dirname,"lib/index.js")
     },
     port: 3001,
     language:"mixed",
