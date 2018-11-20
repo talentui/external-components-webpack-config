@@ -2,10 +2,14 @@
  * 构建入口
  * webpack 按需加载，设置public path
  */
-__webpack_public_path__ =
-    "//stnew03.beisen.com/ux/upaas/" +
-    process.env.packageName +
-    "/release/dist/";
+if (process.env.NODE_ENV === "development") {
+    __webpack_public_path__ = '//localhost:3001/';
+} else {
+    __webpack_public_path__ =
+        "//stnew03.beisen.com/ux/upaas/" +
+        process.env.packageName +
+        "/release/dist/";
+}
 import propsLoader from "./propsLoader";
 import rawComponent from "_/src/index.js";
 const component = propsLoader(rawComponent);
