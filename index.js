@@ -23,6 +23,7 @@ const webpackConfig = require("@talentui/webpack-config")({
     language: "mixed",
     extractStyles: false,
     publicPath: "//stnew03.beisen.com/ux/upaas/" + name + "/release/dist/",
+    hostPage:path.resolve(__dirname, 'index.html'),
     define: {
         "process.env": {
             library: JSON.stringify(library),

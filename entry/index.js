@@ -3,7 +3,7 @@
  * webpack 按需加载，设置public path
  */
 if (process.env.NODE_ENV === "development") {
-    __webpack_public_path__ = '//localhost:3001/';
+    __webpack_public_path__ = "//localhost:3001/";
 } else {
     __webpack_public_path__ =
         "//stnew03.beisen.com/ux/upaas/" +
@@ -12,12 +12,25 @@ if (process.env.NODE_ENV === "development") {
 }
 import propsLoader from "./propsLoader";
 import rawComponent from "_/src/index.js";
+import ReactDom from 'react-dom';
+import React from 'react';
 const component = propsLoader(rawComponent);
+const componentCode = process.env.componentCode; //组件 | 布局的编码
+const appId = process.env.appId; //组件的应用ID
+
+/**
+ * 支持本地 localhost 调试
+ */
+if (process.env.NODE_ENV === "development") {
+    const container = document.getElementById("italent-local-debug");
+    if (container) {
+        const Com = component;
+        ReactDom.render(<Com/>, container);
+    }
+}
 /**
  * 组件注册
  */
-const componentCode = process.env.componentCode; //组件 | 布局的编码
-const appId = process.env.appId; //组件的应用ID
 if (process.env.projectType === "layout") {
     //如果是布局的话
     window._talentui_registry.set("_layout", component);
