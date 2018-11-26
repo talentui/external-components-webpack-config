@@ -12,8 +12,8 @@ if (process.env.NODE_ENV === "development") {
 }
 import propsLoader from "./propsLoader";
 import rawComponent from "_/src/index.js";
-import ReactDom from 'react-dom';
-import React from 'react';
+import ReactDom from "react-dom";
+import React from "react";
 const component = propsLoader(rawComponent);
 const componentCode = process.env.componentCode; //组件 | 布局的编码
 const appId = process.env.appId; //组件的应用ID
@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === "development") {
     const container = document.getElementById("italent-local-debug");
     if (container) {
         const Com = component;
-        ReactDom.render(<Com/>, container);
+        ReactDom.render(<Com />, container);
     }
 }
 /**
@@ -33,7 +33,17 @@ if (process.env.NODE_ENV === "development") {
  */
 if (process.env.projectType === "layout") {
     //如果是布局的话
-    window._talentui_registry.set("_layout", component);
+    const layoutFunc = column => {
+        class Layout extends React.Component {
+            render() {
+                const Com = component;
+                return <Com {...this.props} column={column} />;//传递几等分的参数
+            }
+        }
+        Layout.getEditProps = component.getEditProps;
+        return Layout;
+    };
+    window._talentui_registry.set("_layout", layoutFunc);
 } else {
     //如果是组件的话
     window._talentui_registry.update("_externalComp", function(externalComp) {
