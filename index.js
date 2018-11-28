@@ -38,8 +38,8 @@ const webpackConfig = require("@talentui/webpack-config")({
 
 module.exports = merge(webpackConfig, {
     externals: {
-        react: "react",
-        "react-dom": "reactDom"
+        react: "React",
+        "react-dom": "ReactDOM"
     },
     output: {
         jsonpFunction: library
