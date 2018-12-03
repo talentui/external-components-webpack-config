@@ -1,5 +1,4 @@
 node_modules/
-.npmignore
 yarn.lock
 .DS_Store
 package-lock.json

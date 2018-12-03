@@ -1,0 +1,15 @@
+__tests__
+.awcache
+/extras
+node_modules
+/src/
+.gitignore
+.npmignore
+.DS_Store
+jest.config.js
+tsconfig.json
+yarn.lock
+/talent-ui-dll-parser-util
+/talent-ui-dll-webpack-config
+/webpack-library-config
+/webpack-config
