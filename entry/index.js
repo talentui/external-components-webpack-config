@@ -10,6 +10,7 @@ if (process.env.NODE_ENV === "development") {
         process.env.packageName +
         "/release/dist/";
 }
+import hoistNonReactStatics from 'hoist-non-react-statics';
 import propsLoader from "./propsLoader";
 import rawComponent from "_/src/index.js";
 import ReactDom from "react-dom";
@@ -40,8 +41,9 @@ if (process.env.projectType === "layout") {
                 return <Com {...this.props} column={column} />;//传递几等分的参数
             }
         }
-        Layout.onSave = component.onSave;// 页面保存前调用的钩子
-        Layout.getEditProps = component.getEditProps;
+        hoistNonReactStatics(Layout,component);//静态属性拷贝
+        // Layout.onSave = component.onSave;// 页面保存前调用的钩子
+        // Layout.getEditProps = component.getEditProps;
         return Layout;
     };
     window._talentui_registry.set("_layout", layoutFunc);
