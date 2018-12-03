@@ -40,6 +40,7 @@ if (process.env.projectType === "layout") {
                 return <Com {...this.props} column={column} />;//传递几等分的参数
             }
         }
+        Layout.onSave = component.onSave;// 页面保存前调用的钩子
         Layout.getEditProps = component.getEditProps;
         return Layout;
     };
