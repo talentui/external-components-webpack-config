@@ -6,6 +6,6 @@ module.exports = {
         name: isProduction
             ? "images/[name]-[hash].[ext]"
             : "images/[name].[ext]",
-        useRelativePath: true
+        // useRelativePath: true
     }
 };
