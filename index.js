@@ -3,6 +3,7 @@ const path = require("path");
 const merge = require("webpack-merge");
 const Analyzer = require("webpack-bundle-analyzer");
 const root = fs.realpathSync(process.cwd());
+const { asset_path, NODE_ENV } = process.env;
 const {
     appId,
     componentCode,
@@ -11,9 +12,7 @@ const {
     projectType
 } = require(path.resolve(root, "package.json"));
 const library = name.replace(/@|\-|\//g, "_");
-const buildProd =
-    require("@talentui/webpack-config/src/helpers/parse-mode")() ===
-    "production";
+const buildProd = (NODE_ENV === "production");
 
 const webpackConfig = require("@talentui/webpack-config")({
     entry: {
