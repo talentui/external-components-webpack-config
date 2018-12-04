@@ -22,7 +22,7 @@ const webpackConfig = require("@talentui/webpack-config")({
     port: 3001,
     language: "mixed",
     extractStyles: false,
-    publicPath: "//stnew03.beisen.com/ux/upaas/" + name + "/release/dist/",
+    publicPath: asset_path || "//stnew03.beisen.com/ux/upaas/" + name + "/release/dist/",
     hostPage:path.resolve(__dirname, 'index.html'),
     define: {
         "process.env": {
