@@ -12,7 +12,7 @@ const {
     projectType
 } = require(path.resolve(root, "package.json"));
 const library = name.replace(/@|\-|\//g, "_");
-const buildProd = (NODE_ENV === "production");
+const buildProd = NODE_ENV === "production";
 
 const webpackConfig = require("@talentui/webpack-config")({
     entry: {
@@ -21,8 +21,10 @@ const webpackConfig = require("@talentui/webpack-config")({
     port: 3001,
     language: "mixed",
     extractStyles: false,
-    publicPath: asset_path || "//stnew03.beisen.com/ux/upaas/" + name + "/release/dist/",
-    hostPage:path.resolve(__dirname, 'index.html'),
+    publicPath:
+        asset_path ||
+        "//stnew03.beisen.com/ux/upaas/" + name + "/release/dist/",
+    hostPage: path.resolve(__dirname, "index.html"),
     define: {
         "process.env": {
             library: JSON.stringify(library),
@@ -34,23 +36,32 @@ const webpackConfig = require("@talentui/webpack-config")({
     },
     projectType: "module"
 });
-
-module.exports = merge(webpackConfig, {
-    externals: {
-        react: "React",
-        "react-dom": "ReactDOM"
+//自定义webpack配置
+let customWebpackConfig = {};
+let customWebpackConfigPath = path.resolve(root, "webpack.config.js");
+if (fs.existsSync(customWebpackConfigPath)) {
+    customWebpackConfig = require(customWebpackConfigPath);
+}
+module.exports = merge(
+    webpackConfig,
+    {
+        externals: {
+            react: "React",
+            "react-dom": "ReactDOM"
+        },
+        output: {
+            jsonpFunction: library
+        },
+        plugins: buildProd
+            ? [
+                  new Analyzer.BundleAnalyzerPlugin({
+                      analyzerMode: "static",
+                      generateStatsFile: true,
+                      reportFilename: `report-${version}.html`,
+                      statsFilename: `stats-${version}.json`
+                  })
+              ]
+            : []
     },
-    output: {
-        jsonpFunction: library
-    },
-    plugins: buildProd
-        ? [
-              new Analyzer.BundleAnalyzerPlugin({
-                  analyzerMode: "static",
-                  generateStatsFile: true,
-                  reportFilename: `report-${version}.html`,
-                  statsFilename: `stats-${version}.json`
-              })
-          ]
-        : []
-});
+    customWebpackConfig
+);
