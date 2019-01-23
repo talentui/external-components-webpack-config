@@ -2,6 +2,7 @@
 
 # ChangeLog
 
+
 ## 1.1.6
 
 fix bug : add NODE_ENV to DefinePlugin to fix a Redux bug when build-prod
