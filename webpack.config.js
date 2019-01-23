@@ -18,6 +18,9 @@ module.exports = {
         module: {
             rules: require("./rules/index.js")
         },
+        externals: {
+            "styled-components":'styled'
+        },
         plugins: plugins,
         resolve: {
             extensions: [".tsx", ".ts", ".js", ".jsx", ".vue"],
