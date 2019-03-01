@@ -1,6 +1,6 @@
 {
   "name": "@talentui/external-components-webpack-config",
-  "version": "4.0.20",
+  "version": "4.0.21",
   "description": "打包外部组件的webpack配置及其构建的入口",
   "main": "index.js",
   "author": "lihe3@beisen.com",
@@ -9,7 +9,6 @@
     "prepublish": "rm -rf ./lib && babel ./entry  --out-dir lib"
   },
   "dependencies": {
-    "@talentui/webpack-config": "^4.0.6",
     "core-js": "^2.5.7",
     "hoist-non-react-statics": "^3.2.0",
     "webpack-merge": "^4.1.4"
@@ -17,6 +16,7 @@
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
-    "@talentui/get-babel-config": "^4.0.1"
+    "@talentui/get-babel-config": "^4.0.1",
+    "@talentui/webpack-config": "^4.0.6"
   }
 }
