@@ -48,7 +48,7 @@ module.exports = merge(
         externals: {
             react: "React",
             "react-dom": "ReactDOM",
-            "styled-components":'styled'
+            // "styled-components":'styled'
         },
         output: {
             jsonpFunction: library
